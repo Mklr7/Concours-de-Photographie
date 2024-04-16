@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire GPS
+{% endblock %}
+
+{% block body %}
+	<section class="bg-gray-50 dark:bg-gray-900">
+		<div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+			<a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+				Logo
+																          Longuenesse
+			</a>
+			<div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+				<div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+					<div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+						<h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+							Inscrivez-vous
+						</h1>
+
+
+						{{ form_start(form) }}
+						{{ form_row(form.latitude) }}
+						{{ form_row(form.longitude) }}
+						<button type="button" id="btn-get-location" class=" mb-10">Obtenir la localisation</button>
+                        
+						{{form_end(form)}}
+
+
+					</div>
+				</div>
+			</section>
+ 
+			<script>
+				document.addEventListener('DOMContentLoaded', function () {
+var btnGetLocation = document.getElementById('btn-get-location');
+btnGetLocation.addEventListener('click', function () {
+if (navigator.geolocation) {
+navigator.geolocation.getCurrentPosition(function (position) {
+var latitudeField = document.getElementById('{{ form.latitude.vars.id }}');
+var longitudeField = document.getElementById('{{ form.longitude.vars.id }}');
+latitudeField.value = position.coords.latitude;
+longitudeField.value = position.coords.longitude;
+alert("La géolocalisation est prise en charge par ce navigateur Merci pour votre confiance.");
+});
+} else {
+alert("La géolocalisation n'est pas prise en charge par ce navigateur.");
+}
+});
+});
+			</script>
+
+
+		{% endblock %}

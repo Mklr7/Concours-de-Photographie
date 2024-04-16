@@ -3,3 +3,14 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+
+app_public_attestation:
+    path: '/public/attestation/{filename}'
+    controller: App\Controller\DocumentController::attestation
+
+
+app_jury:
+    path: '/jury'
+    controller: App\Controller\JuryController::index
+    

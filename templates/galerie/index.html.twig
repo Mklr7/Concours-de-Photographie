@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galerie
+{% endblock %}
+
+{% block body %}
+
+
+	<section class=" bg-white dark:bg-gray-900 mt-20 ">
+		<div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6   ">
+			<div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
+				<h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Galerie Photo</h2>
+				<p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400 mb-20">
+					Bienvenue dans notre galerie photo où nous partageons notre passion pour la photographie à travers une sélection soigneusement choisie d'images captivantes. Explorez nos collections et laissez-vous inspirer par la beauté du monde qui nous entoure.</p>
+			</div>
+		
+		 // TANQUE LE JURY  n'aura pas choisi les photos primées Il rest desactivé. 
+		 
+			{# {% for photo in photos %}
+				<div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2 items-center bg-gray-50 rounded-lg ">
+					<a href="#">
+						<img class="w-full rounded-lg  sm:rounded-l-lg" src="{{ asset(photo.getImagePath()) }}" alt="User photo">
+					</a>
+					<div class="p-5">
+						<h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+							<a href="#">{{photo.user}}</a>
+						</h3>
+						<span class="text-gray-500 dark:text-gray-400">{{ photo.nom }}
+						</span>
+						<p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">{{ photo.description }}</p>
+						
+							<h3 class="text-xl font-bold tracking-tight  text-gray-800 dark:text-white">Prise en
+								{{ photo.categorie }}</h3>
+						<br>
+					
+					</div>
+				</div>
+			{% endfor %} #}
+
+			
+
+		</div>
+	</section>
+{% endblock %}
